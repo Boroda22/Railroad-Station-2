@@ -167,7 +167,7 @@ namespace Railroad_Station_2.Services
                     }
                     else
                     {
-                        path = endVertex.ToString() + path;
+                        path = endVertex.ToString() + "=>" + path;
                     }
                 }
                 else

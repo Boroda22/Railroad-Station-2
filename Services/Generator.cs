@@ -71,7 +71,7 @@ namespace Railroad_Station_2.Services
 
 
         /// <summary>
-        /// 
+        /// добавление вершин
         /// </summary>
         /// <param name="maxSwitches"></param>
         /// <param name="maxWays"></param>
