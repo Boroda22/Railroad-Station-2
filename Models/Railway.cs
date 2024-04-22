@@ -15,7 +15,10 @@ namespace Railroad_Station_2.Models
         /// Секции ребра (для определения свободного пути
         /// </summary>
         private List<Section> sections { get; }
-
+        /// <summary>
+        /// Счетчик путей
+        /// </summary>
+        private static int index = 0;
         private List<Section> createSections(int maxSections)
         {
             var result = new List<Section>();
@@ -71,7 +74,16 @@ namespace Railroad_Station_2.Models
                 return sections.Sum(x => x.Lenght);
             }
         }
-
+        /// <summary>
+        /// Наименование пути
+        /// </summary>
+        public string RailwayName
+        {
+            get
+            {
+                return $"Путь №{index}";
+            }
+        }
 
         /// <summary>
         /// Конструктор
@@ -81,12 +93,14 @@ namespace Railroad_Station_2.Models
         {
             ConnectedSwitch = connectedVertex;
             sections = createSections(maxSections);
+            index++;
         }
 
 
         public override string ToString()
         {
-            return $"Путь-{ConnectedSwitch.SwitchName}/Вес={EdgeWeight}/Свободный={IsFree}";
+            var res = IsFree ? "Свободен" : "Занят";
+            return $"Путь-{ConnectedSwitch.SwitchName}/Вес={EdgeWeight}/{res}";
         }
 
         
