@@ -100,7 +100,7 @@ namespace Railroad_Station_2.Models
         public override string ToString()
         {
             var res = IsFree ? "Свободен" : "Занят";
-            return $"Путь-{ConnectedSwitch.SwitchName}/Вес={EdgeWeight}/{res}";
+            return $"{RailwayName}/Вес={EdgeWeight}/{res}";
         }
 
         
