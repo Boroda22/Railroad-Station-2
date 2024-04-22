@@ -13,9 +13,9 @@ namespace Railroad_Station_2.Services
     /// </summary>
     public class Dijkstra
     {
-        RailwayPark graph;
+        private RailwayPark graph;
 
-        List<GraphVertexInfo> infos;
+        private List<GraphVertexInfo> infos;
 
         /// <summary>
         /// Конструктор
@@ -84,7 +84,19 @@ namespace Railroad_Station_2.Services
         /// <returns>Кратчайший путь</returns>
         public string FindShortestPath(string startName, string finishName)
         {
-            return FindShortestPath(graph.FindVertex(startName), graph.FindVertex(finishName));
+            var startVertex = graph.FindVertex(startName);
+            var endVertex = graph.FindVertex(finishName);
+
+            if(startVertex == null)
+            {
+                return "Начало пути не существует";
+            }
+            if(endVertex == null)
+            {
+                return "Окончание пути не существует";
+            }
+
+            return FindShortestPath(startVertex, endVertex);
         }
 
         /// <summary>
@@ -95,10 +107,6 @@ namespace Railroad_Station_2.Services
         /// <returns>Кратчайший путь</returns>
         public string FindShortestPath(RailwaySwitch startVertex, RailwaySwitch finishVertex)
         {
-            if(startVertex == null || finishVertex == null)
-            {
-                return ($"Не найдена одна из вершин указанного пути");
-            }
             InitInfo();
             var first = GetVertexInfo(startVertex);
             first.EdgesWeightSum = 0;
@@ -125,7 +133,6 @@ namespace Railroad_Station_2.Services
             //проверяем свободность пути, определяем вес смежных ребер и выбираем наименьшее ребро с вершиной
             foreach (var railway in info.Vertex.Railways)
             {
-                //проверяем занятость всего пути
                 if (railway.IsFree)
                 {
                     var nextInfo = GetVertexInfo(railway.ConnectedSwitch);
@@ -147,32 +154,25 @@ namespace Railroad_Station_2.Services
         /// <returns>Путь</returns>
         private string GetPath(RailwaySwitch startVertex, RailwaySwitch endVertex)
         {
-            var path = string.Empty;
-            if(startVertex == null || endVertex == null)
-            {
-                return "Нет пути";
-            }
-
-            path = endVertex.ToString();
+            var path = endVertex.ToString();
             while (startVertex != endVertex)
-            {                
-                var vertInfo = GetVertexInfo(endVertex);
-                if(vertInfo != null)
+            {
+                var vrtx = GetVertexInfo(endVertex);
+                if(vrtx != null)
                 {
-                    endVertex = vertInfo.PreviousVertex;
-                    //не имеет вершины, значит тупик
-                    if (endVertex != null)
+                    endVertex = vrtx.PreviousVertex;
+                    if(endVertex == null)
                     {
-                        path = $"{endVertex.ToString()}=>{path}";
+                        return "Путь не существует";
                     }
                     else
                     {
-                        path = $"Тупик на {vertInfo.Vertex.SwitchName}";
+                        path = endVertex.ToString() + path;
                     }
                 }
                 else
                 {
-                    return $"Указанный маршрут не найден";
+                    return "Путь не существует";
                 }
             }
 

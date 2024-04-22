@@ -74,7 +74,7 @@ namespace Railroad_Station_2
                                 Console.WriteLine($"\tПрилегающие пути:");
                                 foreach(var item in swi.Railways)
                                 {
-                                    Console.WriteLine($"\t\tк стрелке-{item.ConnectedSwitch.SwitchName}/длина={item.TotalLenght}");
+                                    Console.WriteLine($"\t\t{item.RailwayName}/[стр.{item.ConnectedSwitch.SwitchName}]/длина={item.TotalLenght}");
                                 }
                             }
                         }
