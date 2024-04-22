@@ -16,9 +16,9 @@ namespace Railroad_Station_2.Models
         /// </summary>
         private List<Section> sections { get; }
         /// <summary>
-        /// Счетчик путей
+        /// Общий счетчик путей
         /// </summary>
-        private static int index = 0;
+        private static int totalIndex = 0;
         private List<Section> createSections(int maxSections)
         {
             var result = new List<Section>();
@@ -81,9 +81,13 @@ namespace Railroad_Station_2.Models
         {
             get
             {
-                return $"Путь №{index}";
+                return $"Путь №{RailwayIndex}";
             }
         }
+        /// <summary>
+        /// Текущий номер пути
+        /// </summary>
+        public int RailwayIndex { get; }
 
         /// <summary>
         /// Конструктор
@@ -93,7 +97,8 @@ namespace Railroad_Station_2.Models
         {
             ConnectedSwitch = connectedVertex;
             sections = createSections(maxSections);
-            index++;
+            totalIndex++;
+            RailwayIndex = totalIndex;
         }
 
 
