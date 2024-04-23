@@ -14,7 +14,7 @@ namespace Railroad_Station_2.Services
     public class GraphVertexInfo
     {
         /// <summary>
-        /// Вершина
+        /// Стрелка (вершина)
         /// </summary>
         public RailwaySwitch Vertex { get; set; }
 
@@ -29,9 +29,14 @@ namespace Railroad_Station_2.Services
         public int EdgesWeightSum { get; set; }
 
         /// <summary>
-        /// Предыдущая вершина
+        /// Предыдущая стрелка (вершина)
         /// </summary>
         public RailwaySwitch PreviousVertex { get; set; }
+
+        /// <summary>
+        /// Прилегающий путь (связанная грань)
+        /// </summary>
+        public Railway Railway { get; set; }
 
         /// <summary>
         /// Конструктор

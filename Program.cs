@@ -48,7 +48,7 @@ namespace Railroad_Station_2
                 foreach (var park in railwayParks)
                 {
                     var result = Generator.FindShortestPath(startPoint, endPoint, park);
-                    Console.WriteLine($"Кратчайший маршрут {park.ParkName}: {result}"); 
+                    Console.WriteLine($"Кратчайший маршрут {park.ParkName}:\n {result}"); 
                 }                
             }
             else
@@ -74,7 +74,7 @@ namespace Railroad_Station_2
                                 Console.WriteLine($"\tПрилегающие пути:");
                                 foreach(var item in swi.Railways)
                                 {
-                                    Console.WriteLine($"\t\t{item.RailwayName}/[стр.{item.ConnectedSwitch.SwitchName}]/длина={item.TotalLenght}");
+                                    Console.WriteLine($"\t\t{item.RailwayName}/[Стрелка {item.ConnectedSwitch.SwitchName}]/длина={item.TotalLenght}");
                                 }
                             }
                         }

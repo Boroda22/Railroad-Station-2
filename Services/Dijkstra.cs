@@ -15,6 +15,9 @@ namespace Railroad_Station_2.Services
     {
         private RailwayPark graph;
 
+        /// <summary>
+        /// Список вершин для обработки
+        /// </summary>
         private List<GraphVertexInfo> infos;
 
         /// <summary>
@@ -141,6 +144,7 @@ namespace Railroad_Station_2.Services
                     {
                         nextInfo.EdgesWeightSum = sum;
                         nextInfo.PreviousVertex = info.Vertex;
+                        nextInfo.Railway = railway;
                     }
                 }                
             }
@@ -155,6 +159,7 @@ namespace Railroad_Station_2.Services
         private string GetPath(RailwaySwitch startVertex, RailwaySwitch endVertex)
         {
             var path = endVertex.ToString();
+            var totalLenght = 0;
             while (startVertex != endVertex)
             {
                 var vrtx = GetVertexInfo(endVertex);
@@ -167,7 +172,8 @@ namespace Railroad_Station_2.Services
                     }
                     else
                     {
-                        path = endVertex.ToString() + "=>" + path;
+                        totalLenght += vrtx.Railway.EdgeWeight;
+                        path = $"{endVertex}->[{vrtx.Railway.RailwayName}]=>{path}";
                     }
                 }
                 else
@@ -176,7 +182,7 @@ namespace Railroad_Station_2.Services
                 }
             }
 
-            return path;
+            return $"{path} / Общая протяженность = {totalLenght}";
         }
     }
 }

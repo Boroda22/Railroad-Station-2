@@ -88,6 +88,13 @@ namespace Railroad_Station_2.Models
         /// Текущий номер пути
         /// </summary>
         public int RailwayIndex { get; }
+        /// <summary>
+        /// Сброс счетчика путей при генерации новых данных
+        /// </summary>
+        public static void ResetIndex()
+        {
+            totalIndex = 0;
+        }
 
         /// <summary>
         /// Конструктор

@@ -46,6 +46,8 @@ namespace Railroad_Station_2.Services
 
             for (int ind = 0; ind < parksCount; ind++)
             {
+                //сбрасывае счетчик путей
+                Railway.ResetIndex();
                 var railwayPark = new RailwayPark($"Парк-{startInd}", direction);
                 generateSwhitches(maxSwitches, maxWays, maxSections, railwayPark);
 
