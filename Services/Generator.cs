@@ -24,6 +24,8 @@ namespace Railroad_Station_2.Services
         /// Список жд.парков
         /// </summary>
         private static List<RailwayPark> railwayParks;
+        
+        
         /// <summary>
         /// Генератор данных
         /// </summary>
@@ -51,6 +53,7 @@ namespace Railroad_Station_2.Services
                 var railwayPark = new RailwayPark($"Парк-{startInd}", direction);
                 generateSwhitches(maxSwitches, maxWays, maxSections, railwayPark);
 
+                startInd += 2;
                 railwayParks.Add(railwayPark);
             }
 
@@ -91,7 +94,6 @@ namespace Railroad_Station_2.Services
 
             generateRailways(maxWays, maxSections, railwayPark);
         }
-
         /// <summary>
         /// добавление ребер
         /// </summary>
@@ -100,17 +102,19 @@ namespace Railroad_Station_2.Services
         /// <param name="railwayPark"></param>
         private static void generateRailways(int maxWays, int maxSections, RailwayPark railwayPark)
         {
+            //случайная генерация путей
             //Random rnd = new Random();
-            //int value = rnd.Next(1, maxWays+1);            
-            //for(int x = 1; x <= value; x++)
+            //int value = rnd.Next(1, maxWays + 1);
+            //for (int x = 1; x <= value; x++)
             //{
             //    Random rndInd = new Random();
             //    int startInd = rndInd.Next(namesSwithes.Length);
             //    int endInd = rnd.Next(namesSwithes.Length);
-            //    railwayPark.AddEdge(namesSwithes[startInd].ToString(), namesSwithes[endInd].ToString(), maxSections);
+            //    railwayPark.AddRailway(namesSwithes[startInd].ToString(), namesSwithes[endInd].ToString(), maxSections);
 
             //}
 
+            //ручная генерация путей
             railwayPark.AddRailway("A", "B", maxSections);
             railwayPark.AddRailway("A", "C", maxSections);
             railwayPark.AddRailway("A", "D", maxSections);

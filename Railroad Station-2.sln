@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.34114.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Railroad Station-2", "Railroad Station-2.csproj", "{0EF0BD9B-2D57-4FDF-A6FC-8973A6779DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Railroad Station-2", "Railroad Station-2.csproj", "{0EF0BD9B-2D57-4FDF-A6FC-8973A6779DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailroadTest", "..\RailroadTest\RailroadTest.csproj", "{384A890B-B45D-4A69-B93C-18F0DF67708F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0EF0BD9B-2D57-4FDF-A6FC-8973A6779DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EF0BD9B-2D57-4FDF-A6FC-8973A6779DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EF0BD9B-2D57-4FDF-A6FC-8973A6779DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{384A890B-B45D-4A69-B93C-18F0DF67708F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384A890B-B45D-4A69-B93C-18F0DF67708F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384A890B-B45D-4A69-B93C-18F0DF67708F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384A890B-B45D-4A69-B93C-18F0DF67708F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

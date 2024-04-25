@@ -27,7 +27,7 @@ namespace Railroad_Station_2
         private static void generateData()
         {
             railwayParks.Clear();
-            railwayParks = Generator.GenerateData(parksCount: 1,   // количество парков
+            railwayParks = Generator.GenerateData(parksCount: 5,   // количество парков
                                                   maxSwitches: 9,  // количество стрелок (вершин)
                                                   maxWays: 3,      // количество путей, прилегающих к стрелке (сомнительно, что может быть не равно 2-м)
                                                   maxSections: 9,  // количество секций/стыков (для СЦБ)
